@@ -45,6 +45,28 @@ class LinkedList:
             
             # actual_node is the last node: so we insert the new_node
             # right after the actual_node
+            actual_node.next_node = new_node
+    
+    # O(N) linear running time        
+    def remove(self, data):
+        
+        if self.head is None:
+            return
+        
+        actual_node = self.head
+        previous_node = None
+        
+        while actual_node is not None and actual_node.data != data:
+            previous_node = actual_node
+            actual_node = actual_node.next_node
+            
+        if actual_node is None:
+            return 
+        
+        if previous_node is None:
+            self.head = actual_node.next_node
+        else:
+            previous_node.next_node = actual_node.next_node
             
     
     # O(1)
@@ -66,7 +88,7 @@ if __name__ == '__main__':
     linked_list.insert_start('Adam')
     linked_list.insert_start(7.5)
     linked_list.insert_start(100)
-    linked_list.insert_start(1000)
+    linked_list.insert_end(1000)
     linked_list.traverse()
     
         
