@@ -81,16 +81,16 @@ class LinkedList:
                 itr.next = itr.next.next
                 break
             itr = itr.next
-            count += 1                
+            count += 1       
+            
+    def insert_values(self, data_list):
+        self.head = None
+        for data in data_list:
+            self.insert_at_end(data)         
         
 if __name__ == '__main__':
     root = LinkedList()
-    root.insert_at_begining(5)
-    root.insert_at_begining(10)
-    root.insert_at_begining(15)
-    root.insert_at_end(25)
-    root.insert_at(2, 345)
-    root.remove_at(4)
+    root.insert_values([4, 5, 6, 7])
     root.print()
     
         
